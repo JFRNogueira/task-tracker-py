@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: task-tracker-cli
+Version: 0.1.0
+Summary: A simple JSON-backed task tracker CLI.
+Requires-Python: >=3.10
