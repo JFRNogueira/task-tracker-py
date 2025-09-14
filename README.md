@@ -47,80 +47,80 @@ task-cli --help
 python -m task_tracker.cli.main --help
 ```
 
-## 📁 Estrutura de pastas
+## 📁 Project Structure
 
 ```bash
 task-tracker/
 ├─ src/
-│  └─ task_tracker/         # Pacote da aplicação
+│  └─ task_tracker/         # Application package
 │     ├─ __init__.py
-│     ├─ constants.py       # Constantes de domínio (status, defaults)
-│     ├─ exceptions.py      # Exceções específicas (TaskNotFound, InvalidStatus, etc.)
+│     ├─ constants.py       # Domain constants (statuses, defaults)
+│     ├─ exceptions.py      # Specific exceptions (TaskNotFound, InvalidStatus, etc.)
 │     ├─ models/
 │     │  ├─ __init__.py
-│     │  └─ task.py         # Entidade Task (dataclass) + (de)serialização dict
+│     │  └─ task.py         # Task entity (dataclass) + dict (de)serialization
 │     ├─ storage/
 │     │  ├─ __init__.py
-│     │  └─ json_storage.py # Persistência em JSON no CWD (tasks.json)
+│     │  └─ json_storage.py # JSON persistence in the CWD (tasks.json)
 │     ├─ services/
 │     │  ├─ __init__.py
-│     │  └─ task_service.py # Regras de negócio: add/update/delete/list
+│     │  └─ task_service.py # Business logic: add/update/delete/list
 │     ├─ cli/
 │     │  ├─ __init__.py
-│     │  └─ main.py         # Parser de argumentos (argparse) e comandos
+│     │  └─ main.py         # Argument parser (argparse) and commands
 │     ├─ utils/
 │     │  ├─ __init__.py
-│     │  └─ time.py         # Utilitário de tempo (UTC ISO-8601)
-│     ├─ tests/             # Testes unitários
-│     └─ ui/                # Interface gráfica (bonus)
-│        └─ kanban.py       # Aplicação Streamlit com quadro Kanban
-├─ docs/                    # Documentação do projeto
-├─ tasks.json               # Armazena as tarefas (criado automaticamente)
-├─ README.md                # Guia de uso
-└─ pyproject.toml           # Configuração do projeto e entry point
+│     │  └─ time.py         # Time utility (UTC ISO-8601)
+│     ├─ tests/             # Unit tests
+│     └─ ui/                # Graphical interface (bonus)
+│        └─ kanban.py       # Streamlit application with Kanban board
+├─ docs/                    # Project documentation
+├─ tasks.json               # Stores tasks (created automatically)
+├─ README.md                # Usage guide
+└─ pyproject.toml           # Project configuration and entry point
 ```
 
-## 📖 Uso
+## 📖 Usage
 
-### Comandos disponíveis:
+### Available commands:
 
 ```bash
-# Adicionar uma nova tarefa
-task-cli add "Minha nova tarefa"
+# Add a new task
+task-cli add "My new task"
 
-# Listar todas as tarefas
+# List all tasks
 task-cli list
 
-# Listar tarefas por status
+# List tasks by status
 task-cli list todo
 task-cli list in-progress
 task-cli list done
 
-# Atualizar descrição de uma tarefa
-task-cli update 1 "Nova descrição"
+# Update a task description
+task-cli update 1 "New description"
 
-# Marcar tarefa como em progresso
+# Mark a task as in progress
 task-cli mark-in-progress 1
 
-# Marcar tarefa como concluída
+# Mark a task as done
 task-cli mark-done 1
 
-# Excluir uma tarefa
+# Delete a task
 task-cli delete 1
 ```
 
-### Exemplo de uso:
+### Example:
 
 ```bash
-$ task-cli add "Estudar Python"
+$ task-cli add "Study Python"
 Task added successfully (ID: 1)
 
-$ task-cli add "Fazer exercícios"
+$ task-cli add "Do exercises"
 Task added successfully (ID: 2)
 
 $ task-cli list
-1	[todo]	Estudar Python	(created: 2024-01-15T10:30:00Z | updated: 2024-01-15T10:30:00Z)
-2	[todo]	Fazer exercícios	(created: 2024-01-15T10:31:00Z | updated: 2024-01-15T10:31:00Z)
+1   [todo]   Study Python   (created: 2024-01-15T10:30:00Z | updated: 2024-01-15T10:30:00Z)
+2   [todo]   Do exercises   (created: 2024-01-15T10:31:00Z | updated: 2024-01-15T10:31:00Z)
 
 $ task-cli mark-in-progress 1
 Task 1 marked as in-progress
@@ -129,38 +129,38 @@ $ task-cli mark-done 1
 Task 1 marked as done
 
 $ task-cli list done
-1	[done]	Estudar Python	(created: 2024-01-15T10:30:00Z | updated: 2024-01-15T10:32:00Z)
+1   [done]   Study Python   (created: 2024-01-15T10:30:00Z | updated: 2024-01-15T10:32:00Z)
 ```
 
-## 🎨 Interface Gráfica (Bonus)
+## 🎨 Graphical Interface (Bonus)
 
-**Além da CLI tradicional**, este projeto inclui uma **interface gráfica Kanban** desenvolvida com Streamlit para facilitar a interação de usuários que preferem interfaces visuais.
+> In addition to the traditional CLI, this project includes a Kanban-style graphical interface built with Streamlit for users who prefer visual interaction.
 
-### Como usar a interface Kanban:
+How to use the Kanban interface:
 
 ```bash
-# Instalar dependência adicional
+# Install the additional dependency
 pip install streamlit
 
-# Executar a interface gráfica
+# Run the graphical interface
 streamlit run src/ui/kanban.py
 ```
 
-A interface oferece:
+The interface offers:
 
-- 📋 **Visualização em quadro Kanban** (To Do, In Progress, Done)
-- ➕ **Adicionar tarefas** via sidebar
-- ✏️ **Editar descrições** inline
-- 🔄 **Mover tarefas** entre colunas com botões
-- 🗑️ **Excluir tarefas** com confirmação
-- 🔍 **Buscar e filtrar** tarefas
-- 📁 **Escolher arquivo** tasks.json personalizado
+- 📋 Kanban board view (To Do, In Progress, Done)
+- ➕ Add tasks via sidebar
+- ✏️ Inline editing of descriptions
+- 🔄 Move tasks between columns with buttons
+- 🗑️ Delete tasks with confirmation
+- 🔍 Search and filter tasks
+- 📁 Choose a custom tasks.json file
 
-## Going beyond (next steps)
+## 🚀 Going Beyond (Next Steps)
 
-> Features that may be added to improve the project
+Features that could be added to enhance the project
 
-1. Add priority label (`low`, `medium` and `high`)
-1. Add tag label (`#stidies`, `#work`, `#market`, `#marriage`, ...)
-1. Add `dueDate` and highlight overdue tasks
-1. Add a URL link, small description or append small files
+1. Add priority labels (low, medium, high)
+1. Add tag labels (#studies, #work, #market, #marriage, ...)
+1. Add dueDate and highlight overdue tasks
+1. Add URL links, small descriptions, or attach small files
