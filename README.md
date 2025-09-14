@@ -68,10 +68,12 @@ task-tracker/
 │     ├─ cli/
 │     │  ├─ __init__.py
 │     │  └─ main.py         # Parser de argumentos (argparse) e comandos
-│     └─ utils/
-│        ├─ __init__.py
-│        └─ time.py         # Utilitário de tempo (UTC ISO-8601)
-├─ tests/                   # Testes unitários
+│     ├─ utils/
+│     │  ├─ __init__.py
+│     │  └─ time.py         # Utilitário de tempo (UTC ISO-8601)
+│     ├─ tests/             # Testes unitários
+│     └─ ui/                # Interface gráfica (bonus)
+│        └─ kanban.py       # Aplicação Streamlit com quadro Kanban
 ├─ docs/                    # Documentação do projeto
 ├─ tasks.json               # Armazena as tarefas (criado automaticamente)
 ├─ README.md                # Guia de uso
@@ -129,3 +131,36 @@ Task 1 marked as done
 $ task-cli list done
 1	[done]	Estudar Python	(created: 2024-01-15T10:30:00Z | updated: 2024-01-15T10:32:00Z)
 ```
+
+## 🎨 Interface Gráfica (Bonus)
+
+**Além da CLI tradicional**, este projeto inclui uma **interface gráfica Kanban** desenvolvida com Streamlit para facilitar a interação de usuários que preferem interfaces visuais.
+
+### Como usar a interface Kanban:
+
+```bash
+# Instalar dependência adicional
+pip install streamlit
+
+# Executar a interface gráfica
+streamlit run src/ui/kanban.py
+```
+
+A interface oferece:
+
+- 📋 **Visualização em quadro Kanban** (To Do, In Progress, Done)
+- ➕ **Adicionar tarefas** via sidebar
+- ✏️ **Editar descrições** inline
+- 🔄 **Mover tarefas** entre colunas com botões
+- 🗑️ **Excluir tarefas** com confirmação
+- 🔍 **Buscar e filtrar** tarefas
+- 📁 **Escolher arquivo** tasks.json personalizado
+
+## Going beyond (next steps)
+
+> Features that may be added to improve the project
+
+1. Add priority label (`low`, `medium` and `high`)
+1. Add tag label (`#stidies`, `#work`, `#market`, `#marriage`, ...)
+1. Add `dueDate` and highlight overdue tasks
+1. Add a URL link, small description or append small files

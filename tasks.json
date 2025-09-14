@@ -2,15 +2,29 @@
   {
     "id": 1,
     "description": "Comprar melão",
-    "status": "todo",
+    "status": "done",
     "createdAt": "2025-09-14T17:52:34.183403+00:00",
-    "updatedAt": "2025-09-14T17:52:34.183403+00:00"
+    "updatedAt": "2025-09-14T22:12:41.228795+00:00"
   },
   {
     "id": 2,
     "description": "Estuda python",
-    "status": "todo",
+    "status": "in-progress",
     "createdAt": "2025-09-14T18:31:03.184952+00:00",
-    "updatedAt": "2025-09-14T18:31:03.184952+00:00"
+    "updatedAt": "2025-09-14T22:23:55.953095+00:00"
+  },
+  {
+    "id": 3,
+    "description": "Consulta no pediatra",
+    "status": "todo",
+    "createdAt": "2025-09-14T22:10:23.972742+00:00",
+    "updatedAt": "2025-09-14T22:10:23.972742+00:00"
+  },
+  {
+    "id": 4,
+    "description": "Consulta na obstetra",
+    "status": "todo",
+    "createdAt": "2025-09-14T22:11:00.037272+00:00",
+    "updatedAt": "2025-09-14T22:11:00.037272+00:00"
   }
 ]
