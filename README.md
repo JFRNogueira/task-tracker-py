@@ -4,6 +4,10 @@
 > Organize what you need to do, track what’s in progress, and celebrate your completed tasks!  
 > Everything is stored in a **JSON file** in the current directory — no database, no external dependencies. 🚀
 
+### 📁 Project details
+
+https://roadmap.sh/projects/task-tracker
+
 ---
 
 ## ✨ Features
